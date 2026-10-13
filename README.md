@@ -14,7 +14,10 @@ Todas as entradas são validadas, então o programa não quebra se o usuário di
 
 ## Próximas versões
 
-Esta é a primeira parte do projeto, e ele vai continuar sendo atualizado conforme eu avanço nos estudos. Os próximos passos planejados são:
+Este é só o começo. O projeto vai continuar sendo atualizado conforme eu avanço nos estudos:
 
-- Reescrever o código usando programação orientada a objetos
-- Integrar com APIs externas para buscar informações dos mangás automaticamente
+- Organizar o código usando classes (orientação a objetos)
+- Trocar o arquivo JSON por um banco de dados
+- Buscar os dados dos mangás automaticamente em uma API
+- Transformar em uma API com login
+- Colocar o sistema no ar
