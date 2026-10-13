@@ -1,0 +1,14 @@
+[
+  {
+    "titulo": "Berserk",
+    "volume_atual": 40,
+    "volume_total": 42,
+    "status": "lendo"
+  },
+  {
+    "titulo": "Re:zero",
+    "volume_atual": 100,
+    "volume_total": 430,
+    "status": "lendo"
+  }
+]
