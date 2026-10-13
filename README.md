@@ -11,13 +11,6 @@ Programa de terminal feito em Python para acompanhar a leitura de mangás. Os da
 
 Todas as entradas são validadas, então o programa não quebra se o usuário digitar algo errado.
 
-## Como rodar
-
-Precisa apenas do Python 3, sem bibliotecas externas.
-
-```
-python gerenciador.py
-```
 
 ## Próximas versões
 
