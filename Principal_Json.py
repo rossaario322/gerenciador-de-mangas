@@ -14,48 +14,46 @@ def salvar_mangas(mangas):
         json.dump(mangas, arquivo, ensure_ascii=False, indent=2)
 
 
-
-
-def adicionar_manga():
+def pedir_titulo():
     while True:
         titulo = input("Título: ").strip()
         if not titulo:
             print("O título não pode ficar vazio, tente novamente.")
         else:
-            break
+            return titulo
+
+
+def pedir_numero(mensagem, minimo, maximo):
     while True:
         try:
             try:
-                volume_atual = int(input("Volume atual: "))
+                numero = int(input(mensagem))
             except ValueError:
-                raise ValueError("O volume inserido é incorreto, tente novamente")
-            if volume_atual < 0:
-                raise ValueError("O volume atual não pode ser negativo")
-            break
+                raise ValueError("Digite um número válido")
+            if numero < minimo:
+                raise ValueError(f"O número precisa ser pelo menos {minimo}")
+            if numero > maximo:
+                raise ValueError(f"O número não pode ser maior que {maximo}")
+            return numero
         except ValueError as e:
             print("Erro:", e)
 
-    while True:
-        try:
-            try:
-                volume_total = int(input("Volume total: "))
-            except ValueError:
-                raise ValueError("O volume inserido é incorreto, tente novamente")
-            if volume_total < 1:
-                raise ValueError("O volume total precisa ser pelo menos 1")
-            if volume_atual > volume_total:
-                raise ValueError("O volume atual não pode ser maior que o volume total")
-            break
-        except ValueError as e:
-            print("Erro:", e)
+
+def pedir_status():
     while True:
         try:
             status = input("Status (Lendo/Quero ler/Lido/Para ser lido): ").strip().lower()
             if status not in ["lendo", "quero ler", "lido", "para ser lido"]:
                 raise ValueError("Status inválido, escolha uma das opções")
-            break
+            return status
         except ValueError as e:
             print("Erro:", e)
+
+def adicionar_manga():
+    titulo = pedir_titulo()
+    volume_total = pedir_numero("Volume total: ", 1, 10000)
+    volume_atual = pedir_numero("Volume atual: ", 0, volume_total)
+    status = pedir_status()
 
     mangas = carregar_mangas()
 
@@ -69,6 +67,7 @@ def adicionar_manga():
     mangas.append(novo)
     salvar_mangas(mangas)
 
+    print()
     print("Mangá adicionado com sucesso!\n")
         
 
